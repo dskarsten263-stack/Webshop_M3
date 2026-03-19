@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Video Webshop</title>
+<style>
+  .product {
+    position: relative;
+    width: 300px; /* pas aan naar jouw gewenste formaat */
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+
+  .product img,
+  .product video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  .product video {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .product:hover video {
+    opacity: 1;
+  }
+
+  .product:hover img {
+    opacity: 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>Webshop Hover Video Demo</h1>
+
+<div class="product">
+  <img src="https://a.storyblok.com/f/338913/1280x1024/b7f3c2d593/911-desktop_5-4.jpg/m/filters:format(webp):quality(80)" alt="Product">
+  <video muted preload="none">
+     <source src="https://videos.porsche.com/id/911Desktop54Final/hls.m3u8">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<script>
+  const products = document.querySelectorAll('.product');
+
+  products.forEach(product => {
+    const video = product.querySelector('video');
+
+    product.addEventListener('mouseenter', () => {
+      // wacht 1 seconde voordat de video start
+      product.hoverTimeout = setTimeout(() => {
+        video.currentTime = 0;
+        video.play();
+      }, 300);
+    });
+
+    product.addEventListener('mouseleave', () => {
+      clearTimeout(product.hoverTimeout); // cancel hover timeout
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+</script>
+
+</body>
+</html>

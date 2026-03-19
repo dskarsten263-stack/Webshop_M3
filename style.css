@@ -1,0 +1,352 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* HEADER */
+
+header {
+    background: #333;
+    color: white;
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* NAVBAR */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 4px;
+    border-radius: 4px;
+    ;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo img {
+    height: 60px;
+}
+
+.nav-btn {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.nav-btn a {
+    color: black;
+    text-decoration: none;
+}
+
+
+/* HERO */
+
+.hero {
+    height: 90vh;
+    background: url("foto/GT3RSB.webp") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    color: white;
+    transition: filter 0.5s;
+}
+
+.hero-text a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.hero h1 {
+    font-size: 70px;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* UPDATES SECTION */
+
+.updates {
+    padding: 80px;
+    background: #f4f4f4;
+}
+
+.updates-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.updates-text {
+    flex: 10;
+}
+
+.updates-text h1 {
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+.subtext {
+    margin-top: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+
+/* IMAGE + QUOTE */
+
+.updates-image {
+    flex: 1;
+    position: relative;
+}
+
+.updates-image img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.quote {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    padding: 25px;
+    border-radius: 15px;
+
+    max-width: 260px;
+    backdrop-filter: blur(10px);
+}
+
+.quote span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+/* CARS SECTION */
+
+.cars {
+    padding: 80px;
+    text-align: center;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+.car {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.car a {
+    color: black;
+    text-decoration: none;
+}
+
+.car img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.car button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+/* HOVER EFFECT */
+
+.car:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+
+/* FEATURE SECTION */
+
+.feature {
+    display: flex;
+    gap: 50px;
+    padding: 80px;
+    background: white;
+}
+
+.feature-img img {
+    width: 700px;
+    border-radius: 15px;
+}
+
+.feature-text {
+    max-width: 700px;
+}
+
+.feature-text a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.features-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.feature-item {
+    max-width: 340px;
+}
+
+.feature-item img {
+    width: 56px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+
+/* FOOTER */
+
+footer {
+    background: #eee;
+    padding: 60px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-grid p a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-grid h4 {
+    margin-bottom: 10px;
+}
+
+.footer-grid input {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.footer-grid button {
+    margin-top: 10px;
+    padding: 10px 15px;
+}
+
+@media (max-width: 800px) {
+    .updates-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .features-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* SHOP PAGE */
+.models {
+    padding: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.card h2 img {
+    width: auto;
+    height: 50px;
+    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+}
+
+.card img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    transition: 0.4s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+    opacity: 0;
+}
+
+.card h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.card p {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+    color: white;
+}
+
+.card video {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card:hover video {
+    opacity: 1;
+}
