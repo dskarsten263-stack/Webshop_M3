@@ -3,19 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hover Video Webshop</title>
+<title>Hover Video Card</title>
 <style>
-  .product {
+  .card {
     position: relative;
-    width: 300px; /* pas aan naar jouw gewenste formaat */
+    width: 300px;
     height: 200px;
     overflow: hidden;
     cursor: pointer;
-    border: 1px solid #ccc;
+    border-radius: 10px;
+    border: 1px solid #ddd;
   }
 
-  .product img,
-  .product video {
+  .card img,
+  .card video {
     position: absolute;
     top: 0;
     left: 0;
@@ -25,48 +26,46 @@
     transition: opacity 0.3s ease;
   }
 
-  .product video {
+  .card video {
     opacity: 0;
     pointer-events: none;
   }
 
-  .product:hover video {
+  .card:hover video {
     opacity: 1;
   }
 
-  .product:hover img {
+  .card:hover img {
     opacity: 0;
   }
 </style>
 </head>
 <body>
 
-<h1>Webshop Hover Video Demo</h1>
+<h1>Hover Video Card</h1>
 
-<div class="product">
-  <img src="https://a.storyblok.com/f/338913/1280x1024/b7f3c2d593/911-desktop_5-4.jpg/m/filters:format(webp):quality(80)" alt="Product">
+<div class="card">
+  <img src="https://a.storyblok.com/f/338913/1280x1024/b7f3c2d593/911-desktop_5-4.jpg/m/filters:format(webp):quality(80)" alt="Card">
   <video muted preload="none">
-     <source src="https://videos.porsche.com/id/911Desktop54Final/hls.m3u8">
-    Your browser does not support the video tag.
+    <source src="https://videos.porsche.com/id/911Desktop54Final/hls.m3u8" type="video/mp4">
   </video>
 </div>
 
 <script>
-  const products = document.querySelectorAll('.product');
+  const cards = document.querySelectorAll('.card');
 
-  products.forEach(product => {
-    const video = product.querySelector('video');
+  cards.forEach(card => {
+    const video = card.querySelector('video');
 
-    product.addEventListener('mouseenter', () => {
-      // wacht 1 seconde voordat de video start
-      product.hoverTimeout = setTimeout(() => {
+    card.addEventListener('mouseenter', () => {
+      card.hoverTimeout = setTimeout(() => {
         video.currentTime = 0;
         video.play();
-      }, 300);
+      }, 0);
     });
 
-    product.addEventListener('mouseleave', () => {
-      clearTimeout(product.hoverTimeout); // cancel hover timeout
+    card.addEventListener('mouseleave', () => {
+      clearTimeout(card.hoverTimeout);
       video.pause();
       video.currentTime = 0;
     });

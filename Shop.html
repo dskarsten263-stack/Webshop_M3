@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Porsche Models</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -19,83 +19,114 @@
             </ul>
 
             <div class="logo">
-                <img src="foto/LOGO_P.png" alt="Porsche logo">
+                <img src="foto/LOGO_P.png" alt="Porsche logo" />
             </div>
 
             <button class="nav-btn"><a href="Shop.html">Customize</a></button>
-
         </nav>
     </header>
     <section class="models">
-
+        <div class="search-filter-container">
+            <input type="text" id="searchInput" placeholder="Zoek auto..." />
+        </div>
+        <div class="filters">
+            <button class="active" onclick="filterProducten('alles')">Alles</button>
+            <button onclick="filterProducten('sportieve')">Sportieve</button>
+            <button onclick="filterProducten('suv')">SUV</button>
+            <button onclick="filterProducten('sedan')">Sedan</button>
+            <button onclick="filterProducten('coupe')">Coupé</button>
+            <button onclick="filterProducten('elektrisch')">Elektrisch</button>
+        </div>
         <div class="grid">
-            <div class="card">
-                <img
-                    src="https://a.storyblok.com/f/338913/1280x1024/b7f3c2d593/911-desktop_5-4.jpg/m/filters:format(webp):quality(80)">
-                <video muted preload="none">
-                    <source src="https://videos.porsche.com/id/911Desktop54Final/hls.m3u8">
+            <!-- 911 -->
+            <div class="card" data-categorie="coupe,sportieve">
+                <img src="https://a.storyblok.com/f/338913/1280x1024/b7f3c2d593/911-desktop_5-4.jpg/m/filters:format(webp):quality(80)"
+                    alt="911" />
+                <video muted loop preload="metadata">
+                    <source src="foto/911.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                 </video>
-                <h2><img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/911.b68f913.svg"
-                        alt="911"></h2>
+                <h2>
+                    <img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/911.b68f913.svg"
+                        alt="911" />
+                </h2>
                 <p>Iconische tweezits sportwagen met achtermotor.</p>
             </div>
-            
-            <div class="card">
-                <img
-                    src="https://a.storyblok.com/f/338913/1280x1024/f8ad827507/718-desktop_5-4.jpg/m/filters:format(webp):quality(80)">
-                <video muted loop preload="none">
-                    <source src="https://videos.porsche.com/id/718Desktop54Final/hls.m3u8">
+
+            <!-- 718 -->
+            <div class="card" data-categorie="coupe,sportieve">
+                <img src="https://a.storyblok.com/f/338913/1280x1024/f8ad827507/718-desktop_5-4.jpg/m/filters:format(webp):quality(80)"
+                    alt="718" />
+                <video muted loop preload="metadata">
+                    <source src="foto/718.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                 </video>
-                <h2><img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/718.493a9e3.svg"
-                        alt="718"></h2>
+                <h2>
+                    <img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/718.493a9e3.svg"
+                        alt="718" />
+                </h2>
                 <p>Middenmotor 2-zits sportwagen.</p>
             </div>
 
-            <div class="card">
-                <img
-                    src="https://a.storyblok.com/f/338913/1280x1024/e178b7a186/taycan-desktop_5-4.jpg/m/filters:format(webp):quality(80)">
-                <video muted loop preload="none">
-                    <source src="https://videos.porsche.com/id/taycanDesktop/hls.m3u8">
+            <!-- Taycan -->
+            <div class="card" data-categorie="elektrisch">
+                <img src="https://a.storyblok.com/f/338913/1280x1024/e178b7a186/taycan-desktop_5-4.jpg/m/filters:format(webp):quality(80)"
+                    alt="Taycan" />
+                <video muted loop preload="metadata">
+                    <source src="foto/Taycan.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                 </video>
-                <h2><img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/taycan.df444c6.svg"
-                        alt="taycan"></h2>
+                <h2>
+                    <img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/taycan.df444c6.svg"
+                        alt="Taycan" />
+                </h2>
                 <p>4-deurs elektrische sportwagen.</p>
             </div>
 
-            <div class="card">
-                <img
-                    src="https://a.storyblok.com/f/338913/1280x1024/c06fa1b962/panamera-desktop_5-4.jpg/m/filters:format(webp):quality(80)">
-                <video muted loop preload="none">
-                    <source src="https://videos.porsche.com/id/panameraDesktop/hls.m3u8">
+            <!-- Panamera -->
+            <div class="card" data-categorie="sedan">
+                <img src="https://a.storyblok.com/f/338913/1280x1024/c06fa1b962/panamera-desktop_5-4.jpg/m/filters:format(webp):quality(80)"
+                    alt="Panamera" />
+                <video muted loop preload="metadata">
+                    <source src="foto/Panamera.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                 </video>
-                <h2><img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/panamera.6dae809.svg"
-                        alt="panamera"></h2>
+                <h2>
+                    <img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/panamera.6dae809.svg"
+                        alt="Panamera" />
+                </h2>
                 <p>4-deurs luxe sport sedan.</p>
             </div>
 
-            <div class="card">
-                <img
-                    src="https://a.storyblok.com/f/338913/1280x1024/3debd00362/macan-desktop_5-4.jpg/m/filters:format(webp):quality(80)">
-                <video muted loop preload="none">
-                    <source src="https://videos.porsche.com/id/macanDesktop/hls.m3u8">
+            <!-- Macan -->
+            <div class="card" data-categorie="suv,elektrisch">
+                <img src="https://a.storyblok.com/f/338913/1280x1024/3debd00362/macan-desktop_5-4.jpg/m/filters:format(webp):quality(80)"
+                    alt="Macan" />
+                <video muted loop preload="metadata">
+                    <source src="foto/Macan.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                 </video>
-                <h2><img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/macan.a1844f4.svg"
-                        alt="macan"></h2>
+                <h2>
+                    <img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/macan.a1844f4.svg"
+                        alt="Macan" />
+                </h2>
                 <p>Sportieve compacte SUV.</p>
             </div>
 
-            <div class="card">
-                <img
-                    src="https://a.storyblok.com/f/338913/1280x1024/7c9b828a7a/denver-range-fallback-desktop-var2.jpg/m/filters:format(webp):quality(80)">
-                <video muted preload="none">
-                    <source src="https://videos.porsche.com/id/denvercarrangedesktop/hls.m3u8" type="video/mp4">
+            <!-- Cayenne -->
+            <div class="card" data-categorie="suv">
+                <img src="https://a.storyblok.com/f/338913/1280x1024/7c9b828a7a/denver-range-fallback-desktop-var2.jpg/m/filters:format(webp):quality(80)"
+                    alt="Cayenne" />
+                <video muted loop preload="metadata">
+                    <source src="foto/Cayenne.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
-                <h2><img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/cayenne.2556201.svg"
-                        alt="cayenne"></h2>
+                <h2>
+                    <img src="https://cdn.ui.porsche.com/porsche-design-system/model-signatures/cayenne.2556201.svg"
+                        alt="Cayenne" />
+                </h2>
                 <p>Veelzijdige luxe SUV.</p>
             </div>
-
         </div>
     </section>
 </body>
