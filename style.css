@@ -627,6 +627,163 @@ footer {
 
 }
 
+/* ===== SHOP - Car detail / variants */
+
+.car-detail {
+    padding: 60px;
+    text-align: center;
+}
+
+.car-detail h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.variants {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.variant {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease;
+}
+
+.variant:hover {
+    transform: scale(1.03);
+}
+
+.variant h2 {
+    margin-top: 0;
+}
+
+.variant p {
+    margin: 10px 0;
+    color: #333;
+}
+
+.variant button {
+    margin-top: 15px;
+    padding: 12px 22px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.variant button:hover {
+    background: #444;
+}
+
+#carTitle {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#carTitle img {
+    width: 400px;
+    max-width: 900px;
+    height: auto;
+}
+
+.variant-img {
+    width: 100%;
+    max-width: 320px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+#carTitle img {
+    width: auto;
+    height: 50px;
+    display: block;
+    margin: 0 auto 30px;
+
+}
+
+/* Responsive: variants stack on small screens */
+@media (max-width: 800px) {
+    .variants {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== CART PAGE ===== */
+
+.cart-page {
+    padding: 60px;
+}
+
+.cart-page h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cart-product {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cart-product th,
+.cart-product td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.cart-product th {
+    background: #333;
+    color: white;
+}
+
+.cart-total-box {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cart-total {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.empty-message {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+.clear-cart-btn,
+.remove-item-btn {
+    border: none;
+    background: black;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.clear-cart-btn:hover,
+.remove-item-btn:hover {
+    background: #444;
+}
+
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 800px) {

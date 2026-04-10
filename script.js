@@ -1,10 +1,7 @@
 const cards = document.querySelectorAll('.card');
 const searchInput = document.getElementById('searchInput');
-const filterButtons = document.querySelectorAll('.filters button');
 
-let actieveCategorie = 'alles';
-
-// video hover
+// ================= VIDEO HOVER =================
 cards.forEach(card => {
   const video = card.querySelector('video');
   if (!video) return;
@@ -23,9 +20,9 @@ cards.forEach(card => {
   });
 });
 
-// alles samen filteren
-function updateProducten() {
-  const zoekterm = searchInput.value.toLowerCase();
+// ================= FILTER (ALLEEN UI) =================
+function filterProducten(categorie) {
+  const gekozenCategorie = categorie.toLowerCase();
 
   cards.forEach(card => {
     const categorieen = card.dataset.categorie
@@ -33,16 +30,7 @@ function updateProducten() {
       .split(',')
       .map(item => item.trim());
 
-    const naam = card.querySelector('h2 img').alt.toLowerCase();
-    const beschrijving = card.querySelector('p').textContent.toLowerCase();
-
-    const matchCategorie =
-      actieveCategorie === 'alles' || categorieen.includes(actieveCategorie);
-
-    const matchZoekterm =
-      naam.includes(zoekterm) || beschrijving.includes(zoekterm);
-
-    if (matchCategorie && matchZoekterm) {
+    if (gekozenCategorie === 'alles' || categorieen.includes(gekozenCategorie)) {
       card.style.display = 'block';
     } else {
       card.style.display = 'none';
@@ -50,26 +38,41 @@ function updateProducten() {
   });
 }
 
-// filter functie
-function filterProducten(categorie) {
-  actieveCategorie = categorie.toLowerCase();
+// ================= SEARCH =================
+searchInput.addEventListener('input', () => {
+  const zoekterm = searchInput.value.toLowerCase();
 
-  filterButtons.forEach(button => {
-    button.classList.remove('active');
+  cards.forEach(card => {
+    const naam = card.querySelector('h2 img').alt.toLowerCase();
+    const beschrijving = card.querySelector('p').textContent.toLowerCase();
 
-    if (button.textContent.toLowerCase() === actieveCategorie) {
-      button.classList.add('active');
-    }
-
-    if (actieveCategorie === 'alles' && button.textContent.toLowerCase() === 'alles') {
-      button.classList.add('active');
+    if (naam.includes(zoekterm) || beschrijving.includes(zoekterm)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
     }
   });
+});
 
-  updateProducten();
+// ================= SHOPPING CART =================
+function addToCart(productName, price) {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  let index = cart.findIndex(item => item.name === productName);
+
+  if (index >= 0) {
+    cart[index].amount += 1;
+  } else {
+    cart.push({
+      name: productName,
+      amount: 1,
+      price: price
+    });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// zoekfunctie
-searchInput.addEventListener('input', () => {
-  updateProducten();
-});
+function goToCar(model) {
+  window.location.href = `car.html?model=${model}`;
+}
