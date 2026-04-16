@@ -1,8 +1,12 @@
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
-const list = document.getElementById('products');
-const totalPriceElement = document.getElementById('totalPrice');
-const emptyMessage = document.getElementById('emptyMessage');
-const clearCartBtn = document.getElementById('clearCartBtn');
+
+const cartItems = document.getElementById('cartItems');
+const cartStatus = document.getElementById('cartStatus');
+const summaryItems = document.getElementById('summaryItems');
+const summarySubtotal = document.getElementById('summarySubtotal');
+const summaryDelivery = document.getElementById('summaryDelivery');
+const summaryTotal = document.getElementById('summaryTotal');
+const clearCartButton = document.getElementById('clearCartButton');
 
 function saveCart(updatedCart) {
   localStorage.setItem('cart', JSON.stringify(updatedCart));
@@ -16,40 +20,51 @@ function formatPrice(price) {
 }
 
 function fillCartList() {
-  list.innerHTML = '';
+  cartItems.innerHTML = '';
 
   if (cart.length === 0) {
-    emptyMessage.textContent = 'Je winkelwagen is leeg.';
-    totalPriceElement.textContent = '0,00';
-    clearCartBtn.style.display = 'none';
+    cartStatus.textContent = 'Je winkelwagen is leeg.';
+    summaryItems.textContent = '0';
+    summarySubtotal.textContent = 'EUR 0,00';
+    summaryDelivery.textContent = 'Free';
+    summaryTotal.textContent = 'EUR 0,00';
+    clearCartButton.style.display = 'none';
     return;
   }
 
-  emptyMessage.textContent = '';
-  clearCartBtn.style.display = 'inline-block';
+  cartStatus.textContent = `${cart.length} auto${cart.length > 1 ? "'s" : ''} in je winkelwagen`;
+  clearCartButton.style.display = 'inline-block';
 
   let totaal = 0;
+  let aantalItems = 0;
 
   cart.forEach((element, index) => {
-    const row = document.createElement('tr');
-    const regelTotaal = element.price * element.amount;
+    const itemTotal = element.price * element.amount;
+    totaal += itemTotal;
+    aantalItems += element.amount;
 
-    totaal += regelTotaal;
+    const item = document.createElement('div');
+    item.classList.add('cart-item');
 
-    row.innerHTML = `
-      <td>${element.name}</td>
-      <td>${element.amount}</td>
-      <td>€ ${formatPrice(element.price)}</td>
-      <td>€ ${formatPrice(regelTotaal)}</td>
-      <td>
+    item.innerHTML = `
+      <div class="cart-item-info">
+        <h3>${element.name}</h3>
+        <p>Aantal: ${element.amount}</p>
+        <p>Prijs per stuk: € ${formatPrice(element.price)}</p>
+        <p>Totaal: € ${formatPrice(itemTotal)}</p>
+      </div>
+      <div class="cart-item-actions">
         <button class="remove-item-btn" data-index="${index}">Verwijder</button>
-      </td>
+      </div>
     `;
 
-    list.appendChild(row);
+    cartItems.appendChild(item);
   });
 
-  totalPriceElement.textContent = formatPrice(totaal);
+  summaryItems.textContent = aantalItems;
+  summarySubtotal.textContent = `EUR ${formatPrice(totaal)}`;
+  summaryDelivery.textContent = 'Free';
+  summaryTotal.textContent = `EUR ${formatPrice(totaal)}`;
 
   const removeButtons = document.querySelectorAll('.remove-item-btn');
 
@@ -63,7 +78,7 @@ function fillCartList() {
   });
 }
 
-clearCartBtn.addEventListener('click', () => {
+clearCartButton.addEventListener('click', () => {
   localStorage.removeItem('cart');
   cart.length = 0;
   fillCartList();

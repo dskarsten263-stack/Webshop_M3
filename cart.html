@@ -13,44 +13,58 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="shop.html">Shop</a></li>
                 <li><a href="cart.html">Cart</a></li>
                 <li><a href="index.html#Contact">Contact</a></li>
             </ul>
 
             <div class="logo">
-                <img src="foto/LOGO_P.png" alt="Porsche logo" />
+                <img src="foto/LOGO_P.png" alt="Porsche logo">
             </div>
 
             <button class="nav-btn">
-                <a href="Shop.html">Verder shoppen</a>
+                <a href="shop.html">Verder shoppen</a>
             </button>
         </nav>
     </header>
 
-    <section class="cart-page">
-        <h1>Winkelwagen</h1>
+    <main class="cart-layout">
+        <section class="cart-panel">
+            <div class="cart-title-row">
+                <h2>Selected Cars</h2>
+                <p class="subtle-text" id="cartStatus">Loading your cart...</p>
+            </div>
 
-        <table class="cart-product">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Aantal</th>
-                    <th>Prijs p/st</th>
-                    <th>Totaal</th>
-                    <th>Actie</th>
-                </tr>
-            </thead>
-            <tbody id="products"></tbody>
-        </table>
+            <div id="cartItems" class="cart-items"></div>
+        </section>
 
-        <p class="empty-message" id="emptyMessage"></p>
+        <aside class="summary-panel">
+            <h2>Order Summary</h2>
+            <div class="summary-lines">
+                <div class="summary-line">
+                    <span>Items</span>
+                    <span id="summaryItems">0</span>
+                </div>
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <span id="summarySubtotal">EUR 0,00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Delivery</span>
+                    <span id="summaryDelivery">Free</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span id="summaryTotal">EUR 0,00</span>
+                </div>
+            </div>
 
-        <div class="cart-total-box">
-            <p class="cart-total">Totaal: € <span id="totalPrice">0,00</span></p>
-            <button class="clear-cart-btn" id="clearCartBtn">Winkelwagen legen</button>
-        </div>
-    </section>
+            <div class="summary-actions">
+                <a href="shop.html" class="primary-link">Continue Shopping</a>
+                <button type="button" id="clearCartButton" class="secondary-button">Clear Cart</button>
+            </div>
+        </aside>
+    </main>
 </body>
 
 </html>
