@@ -47,7 +47,7 @@ const data = {
             price: 364802,
             engine: "4.0L atmosferische flat-six",
             topSpeed: "325 km/u",
-            image: "foto/gt3rs.avif"
+            image: "foto/gt3rs.png"
         }
     ],
 
@@ -57,14 +57,14 @@ const data = {
             price: 264984,
             engine: "6-cilinder atmosferische",
             topSpeed: "315 km/u",
-            image: "foto/spyder rs.png"
+            image: "foto/gt4 rs.png"
         },
         {
             name: "718 Spyder RS",
             price: 259012,
             engine: "4.0L atmosferische flat-six",
             topSpeed: "308 km/u",
-            image: "foto/gt4 rs.png"
+            image: "foto/Spyder rs.png"
         }
     ],
 
@@ -136,28 +136,28 @@ const data = {
             price: 80000,
             engine: "2.0L turbo",
             topSpeed: "232 km/u",
-            image: "foto/macan.avif"
+            image: "foto/Macan.png"
         },
         {
             name: "Macan GTS",
             price: 87000,
             engine: "2.0L turbo",
             topSpeed: "232 km/u",
-            image: "foto/macan gts.avif"
+            image: "foto/Macan GTS.png"
         },
         {
             name: "Macan 4 Electric",
             price: 95000,
             engine: "Elektrisch",
             topSpeed: "220 km/u",
-            image: "foto/Macan 4.avif"
+            image: "foto/Macan 4.png"
         },
         {
             name: "Macan Turbo ",
             price: 118000,
             engine: "Elektrisch",
             topSpeed: "260 km/u",
-            image: "foto/macan turbo.png"
+            image: "foto/Macan Turbo.png"
         }
     ],
 
@@ -167,14 +167,14 @@ const data = {
             price: 110000,
             engine: "3.0L V6 turbo",
             topSpeed: "248 km/u",
-            image: "foto/cayenne.png"
+            image: "foto/Cayenne.png"
         },
         {
             name: "Cayenne Coupé",
             price: 132000,
             engine: "4.0L V8 biturbo",
             topSpeed: "273 km/u",
-            image: "foto/Coupé.avif"
+            image: "foto/Coupé.png"
         },
         {
             name: "Cayenne S E-Hybrid Coupé Black Edition",
